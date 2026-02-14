@@ -1,52 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Provide full project source code export package and export instructions",
+  "title": "Add top-level README.md for DarkPattern Shield project",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-11",
-      "text": "Produce an exportable, complete copy of the full project source code (backend and frontend) as a single downloadable package, ensuring it includes all files needed to build and run the app locally (including configuration files already present in the project).",
-      "target": "unknown",
+      "id": "REQ-13",
+      "text": "Create a top-level `README.md` at the repository root that documents the DarkPattern Shield project in English, including: project overview, key features/pages, tech stack, prerequisites, local development setup (frontend + IC canister), how authentication works (Internet Identity), and how to export/download the full source code using the existing export scripts and docs.",
+      "target": "both",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-1"
         ],
         "quotes": [
-          "export my full source code"
+          "povide a readme file of this project"
         ]
       },
       "acceptanceCriteria": [
-        "A single downloadable source-code package is generated that contains the complete repository contents (e.g., backend/, frontend/, and any project config files that exist in the workspace).",
-        "The exported package can be extracted without errors and preserves the folder structure and filenames.",
-        "No source files are omitted from the export (including assets under frontend/public and any generated assets under frontend/public/assets/generated, if present)."
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "text": "Add a top-level documentation file that explains how to obtain/export the full source code from the app/project workspace and how to run it locally, using only English user-facing text.",
-      "target": "unknown",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "export my full source code"
-        ]
-      },
-      "acceptanceCriteria": [
-        "A new top-level documentation file exists (for example, EXPORT.md or SOURCE_CODE_EXPORT.md).",
-        "The documentation includes: prerequisites, local install steps for frontend, local deploy steps for the Motoko backend, and where to find the generated static assets.",
-        "All documentation text is in English."
+        "A `README.md` file exists at the repository root (same level as `backend/` and `frontend/`).",
+        "README content is entirely English and written as end-user/developer documentation (not internal notes).",
+        "README includes (at minimum) sections for: Overview, Features (with the existing pages: Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting + Dashboard, Browser Extension Concept), Tech Stack, Prerequisites (Node/pnpm/dfx), Local Development (install deps, run frontend, deploy canisters), Authentication (Internet Identity high-level flow), and Source Code Export (pointing to the existing `frontend/SOURCE_CODE_EXPORT.md` and mentioning the scripts in `frontend/scripts/`).",
+        "README does not introduce any new product features beyond what is already implemented.",
+        "README instructions align with the existing export behavior described by `frontend/SOURCE_CODE_EXPORT.md` and `frontend/scripts/export-source-code.sh` (including the `README_EXPORT.md` naming inside the export archive)."
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/components/ui or any other paths listed in frontend immutablePaths.",
-    "Respect the single-actor Motoko backend architecture; keep all Motoko logic in backend/main.mo and only add backend/migration.mo if an upgrade requires it."
+    "Do not modify files under `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, or anything in `frontend/src/components/ui`.",
+    "Keep all backend logic in the existing single Motoko actor (no new backend services)."
   ],
   "nonGoals": [
-    "Do not implement an in-app runtime feature that zips/downloads the repository from within the deployed canister.",
-    "Do not add third-party hosting/deployment integrations (GitHub, Vercel, Netlify, AWS, etc.)."
+    "Do not add a new in-app Tech Stack page unless explicitly requested.",
+    "Do not change authentication behavior or add new sign-up/login UI beyond what already exists.",
+    "Do not change the export scripts’ archive format/behavior beyond updating documentation references if needed."
   ],
   "imageRequirements": {
     "required": [],

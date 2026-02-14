@@ -17,5 +17,6 @@
   "frontend/scripts/export-source-code.sh": "POSIX shell script that creates a timestamped tar.gz archive containing the complete repository (backend, frontend, assets, and config files) with export documentation included at the root.",
   "frontend/scripts/export-source-code.ps1": "PowerShell script that creates a timestamped ZIP archive containing the complete repository (backend, frontend, assets, and config files) for Windows users.",
   "frontend/scripts/EXPORT_ARTIFACT.md": "Documentation describing the export script output, archive contents, format, location, and verification steps for the generated source code package.",
-  "frontend/SOURCE_CODE_EXPORT.md": "Comprehensive English documentation covering prerequisites, export instructions, local setup steps, running the application, project structure, development workflow, and troubleshooting for the DarkPattern Shield application."
+  "frontend/SOURCE_CODE_EXPORT.md": "Comprehensive English documentation covering prerequisites, export instructions, local setup steps, running the application, project structure, development workflow, and troubleshooting for the DarkPattern Shield application.",
+  "README.md": "Comprehensive repository root documentation covering project overview, features (Home, Detector, Risk Test, Reporting, Extension), tech stack, prerequisites, local development setup, Internet Identity authentication flow, project structure, source code export instructions, and development commands."
 }

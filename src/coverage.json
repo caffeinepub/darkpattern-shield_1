@@ -1,55 +1,31 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T15:47:52.543Z",
+  "generatedAt": "2026-02-14T17:31:04.327Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
-    "total": 2,
-    "implemented": 2,
+    "total": 1,
+    "implemented": 0,
     "items": [
       {
-        "id": "REQ-11",
-        "summary": "Produce an exportable, complete copy of the full project source code (backend and frontend) as a single downloadable package, ensuring it includes all files needed to build and run the app locally (including configuration files already present in the project).",
-        "status": "implemented",
+        "id": "REQ-13",
+        "summary": "Create a top-level `README.md` at the repository root that documents the DarkPattern Shield project in English, including: project overview, key features/pages, tech stack, prerequisites, local development setup (frontend + IC canister), how authentication works (Internet Identity), and how to export/download the full source code using the existing export scripts and docs.",
+        "status": "missing",
         "plannedFiles": [
-          "frontend/scripts/export-source-code.sh",
-          "frontend/scripts/export-source-code.ps1",
-          "frontend/scripts/EXPORT_ARTIFACT.md"
+          "README.md"
         ],
-        "matchedFiles": [
-          "frontend/scripts/export-source-code.sh",
-          "frontend/scripts/export-source-code.ps1",
-          "frontend/scripts/EXPORT_ARTIFACT.md"
-        ]
-      },
-      {
-        "id": "REQ-12",
-        "summary": "Add a top-level documentation file that explains how to obtain/export the full source code from the app/project workspace and how to run it locally, using only English user-facing text.",
-        "status": "implemented",
-        "plannedFiles": [
-          "frontend/SOURCE_CODE_EXPORT.md",
-          "frontend/scripts/export-source-code.sh"
-        ],
-        "matchedFiles": [
-          "frontend/SOURCE_CODE_EXPORT.md",
-          "frontend/scripts/export-source-code.sh"
-        ]
+        "matchedFiles": []
       }
     ]
   },
   "changedFiles": [
     "build-request.json",
-    "build-template/README.md",
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/SOURCE_CODE_EXPORT.md",
-    "frontend/scripts/EXPORT_ARTIFACT.md",
-    "frontend/scripts/export-source-code.ps1",
-    "frontend/scripts/export-source-code.sh",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

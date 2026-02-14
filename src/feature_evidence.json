@@ -1,44 +1,4 @@
 {
   "kind": "feature_evidence_report",
-  "features": [
-    {
-      "featureId": "feature-produce-an-exportable-complete-copy-of-the-full-project-source-code-backend-and-frontend-as-a-single-downloadable-package-ensuring-it-includes-all-files-needed-to-build-and-run-the-app-locally-including-configuration-files-already-present-in-the-project",
-      "featureTitle": "Produce an exportable, complete copy of the full project source code (backend and frontend) as a single downloadable package, ensuring it includes all files needed to build and run the app locally (including configuration files already present in the project).",
-      "files": [
-        "frontend/scripts/EXPORT_ARTIFACT.md",
-        "frontend/scripts/export-source-code.ps1",
-        "frontend/scripts/export-source-code.sh"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-11"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-a-top-level-documentation-file-that-explains-how-to-obtain-export-the-full-source-code-from-the-app-project-workspace-and-how-to-run-it-locally-using-only-english-user-facing-text",
-      "featureTitle": "Add a top-level documentation file that explains how to obtain/export the full source code from the app/project workspace and how to run it locally, using only English user-facing text.",
-      "files": [
-        "frontend/SOURCE_CODE_EXPORT.md",
-        "frontend/scripts/export-source-code.sh"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-12"
-      ],
-      "confidence": "high"
-    }
-  ]
+  "features": []
 }

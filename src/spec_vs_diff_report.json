@@ -1,46 +1,28 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T15:47:52.540Z",
-  "summary": "The diff adds export scripts (sh/ps1) that generate an archive containing backend/ and frontend/ plus a limited set of root files, and adds documentation files under frontend/. However, it does not clearly satisfy the requirement for a top-level export documentation file, and the export scripts may omit additional repository/config files beyond the hardcoded list.",
-  "missing_requirements": [
+  "generatedAt": "2026-02-14T17:31:04.325Z",
+  "summary": "REQ-13 appears to be implemented via repository-root README documentation, but the diff summary only explicitly shows modifications to metadata/summaries rather than an actual file add; there are also unrelated metadata/state updates not requested by the BuildRequest.",
+  "missing_requirements": [],
+  "hallucinated_features": [
     {
-      "id": "REQ-11",
-      "requirement": "Produce an exportable, complete copy of the full project source code (backend and frontend) as a single downloadable package, ensuring it includes all files needed to build and run the app locally (including configuration files already present in the project).",
-      "reason": "The export scripts only copy `backend/`, `frontend/`, and a small hardcoded list of root files (`dfx.json`, `.gitignore`, `README.md`, `LICENSE`). The requirement/AC calls for a complete repository export including all project config files that exist in the workspace, and the diff does not show inclusion of other possible root-level files/directories (e.g., package manager/workspace files, CI configs, etc.).",
+      "description": "Updated/added metadata entry describing a comprehensive root README and many frontend files via `frontend-file-summaries.txt`, despite the BuildRequest only requesting creation of a top-level `README.md`.",
+      "reason": "The only requested change is to create/update the root README; updating a file-summary inventory is not mentioned as part of the request or constraints.",
       "evidence": [
-        "frontend/scripts/export-source-code.sh",
-        "frontend/scripts/export-source-code.ps1",
-        "frontend/scripts/EXPORT_ARTIFACT.md"
+        "frontend-file-summaries.txt"
       ]
     },
     {
-      "id": "REQ-12",
-      "requirement": "Add a top-level documentation file that explains how to obtain/export the full source code from the app/project workspace and how to run it locally, using only English user-facing text.",
-      "reason": "The added documentation file is located at `frontend/SOURCE_CODE_EXPORT.md`, not at the repository top level as required by the AC (“top-level documentation file”, e.g., `EXPORT.md` or `SOURCE_CODE_EXPORT.md`). The scripts also copy that file into the archive as `README_EXPORT.md`, but that is inside the generated archive—not a committed top-level doc file in the repo.",
+      "description": "Modified `project_state.json` (including a summary referencing a different tech stack: HTML/CSS/Bootstrap + Flask + SQLite).",
+      "reason": "The BuildRequest is solely about adding/updating the root `README.md`; changing project state/summary (and to a seemingly unrelated stack) is not requested.",
       "evidence": [
-        "frontend/SOURCE_CODE_EXPORT.md",
-        "frontend/scripts/export-source-code.sh",
-        "frontend/scripts/export-source-code.ps1"
+        "project_state.json"
       ]
     }
   ],
-  "hallucinated_features": [
-    {
-      "description": "Added an additional documentation file describing the export artifact output (`frontend/scripts/EXPORT_ARTIFACT.md`) that is not explicitly requested (REQ-12 asks for a top-level export doc, not a scripts subfolder artifact doc).",
-      "reason": "BuildRequest only specifies adding a single top-level documentation file explaining export and local run instructions; it does not request a separate artifact documentation file under `frontend/scripts/`.",
-      "evidence": [
-        "frontend/scripts/EXPORT_ARTIFACT.md"
-      ]
-    }
-  ],
-  "confidence": 0.72,
+  "confidence": 0.62,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/SOURCE_CODE_EXPORT.md",
-    "frontend/scripts/EXPORT_ARTIFACT.md",
-    "frontend/scripts/export-source-code.ps1",
-    "frontend/scripts/export-source-code.sh",
     "project_state.json"
   ]
 }

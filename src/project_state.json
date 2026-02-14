@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 5,
+  "projectStateVersion": 7,
   "summary": "Build “DarkPattern Shield”, a hackathon-ready smart-city styled public safety awareness web app focused on social media manipulation and subscription fraud, using HTML/CSS/Bootstrap + Flask + SQLite with simple keyword-based risk scanning.",
   "architectural_notes": [
     "Tech stack decision: Frontend uses HTML/CSS/Bootstrap with Flask-rendered templates.",
@@ -149,6 +149,14 @@
       "id": "AR-13",
       "summary": "Provide an export/download of the full project source code (complete codebase package)",
       "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Create a top-level `README.md` at the repository root that documents the DarkPattern Shield project in English, including: project overview, key features/pages, tech stack, prerequisites, local development setup (frontend + IC canister), how authentication works (Internet Identity), and how to export/download the full source code using the existing export scripts and docs.",
+      "reqIds": [
+        "REQ-13"
+      ],
       "status": "pending"
     }
   ],

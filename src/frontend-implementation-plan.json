@@ -1,52 +1,23 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Source code export package guidance and tooling (frontend-only)",
+  "title": "Add repository root README for DarkPattern Shield",
   "requirements": [
     {
-      "id": "REQ-11",
-      "summary": "Add a repeatable local export script that produces a single archive containing the complete repository contents (including frontend/public assets and generated assets).",
+      "id": "REQ-13",
+      "summary": "Add an English, end-user/developer-facing root README.md covering project overview, existing pages/features, tech stack, prerequisites, local dev (frontend + IC canister), Internet Identity auth, and source-code export instructions aligned with existing export docs/scripts.",
       "acceptanceCriteria": [
-        "A single downloadable source-code package is generated that contains the complete repository contents (e.g., backend/, frontend/, and any project config files that exist in the workspace).",
-        "The exported package can be extracted without errors and preserves the folder structure and filenames.",
-        "No source files are omitted from the export (including assets under frontend/public and any generated assets under frontend/public/assets/generated, if present)."
+        "A `README.md` file exists at the repository root (same level as `backend/` and `frontend/`).",
+        "README content is entirely English and written as end-user/developer documentation (not internal notes).",
+        "README includes (at minimum) sections for: Overview, Features (with the existing pages: Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting + Dashboard, Browser Extension Concept), Tech Stack, Prerequisites (Node/pnpm/dfx), Local Development (install deps, run frontend, deploy canisters), Authentication (Internet Identity high-level flow), and Source Code Export (pointing to the existing `frontend/SOURCE_CODE_EXPORT.md` and mentioning the scripts in `frontend/scripts/`).",
+        "README does not introduce any new product features beyond what is already implemented.",
+        "README instructions align with the existing export behavior described by `frontend/SOURCE_CODE_EXPORT.md` and `frontend/scripts/export-source-code.sh` (including the `README_EXPORT.md` naming inside the export archive)."
       ],
       "file_operations": [
         {
-          "path": "frontend/scripts/export-source-code.sh",
+          "path": "README.md",
           "operation": "create",
-          "description": "Create a POSIX shell script that packages the full repository into a single archive (including backend/, frontend/, and any existing repo-level config files) while preserving paths and filenames. Ensure the export includes frontend/public and frontend/public/assets/generated contents if present, and outputs a single artifact suitable for download/sharing."
-        },
-        {
-          "path": "frontend/scripts/export-source-code.ps1",
-          "operation": "create",
-          "description": "Create an optional PowerShell export script that produces the same single-archive full-repository export on Windows, preserving structure and including frontend/public and any generated assets under frontend/public/assets/generated if present."
-        },
-        {
-          "path": "frontend/scripts/EXPORT_ARTIFACT.md",
-          "operation": "create",
-          "description": "Document what the export script outputs (archive name/location), what it includes, and how to verify the archive contains backend/, frontend/, and static assets (including frontend/public/assets/generated if present)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Add English documentation describing how to export the full source code from the workspace and how to run the frontend and Motoko backend locally, including where generated static assets live.",
-      "acceptanceCriteria": [
-        "A new top-level documentation file exists (for example, EXPORT.md or SOURCE_CODE_EXPORT.md).",
-        "The documentation includes: prerequisites, local install steps for frontend, local deploy steps for the Motoko backend, and where to find the generated static assets.",
-        "All documentation text is in English."
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/SOURCE_CODE_EXPORT.md",
-          "operation": "create",
-          "description": "Create an English documentation file explaining: prerequisites; how to obtain/export a complete copy of the repository from the workspace (using the provided export script); how to install/run the frontend locally; how to deploy/run the Motoko backend locally; and where generated static assets are located (including frontend/public/assets/generated)."
-        },
-        {
-          "path": "frontend/scripts/export-source-code.sh",
-          "operation": "modify",
-          "description": "Update the export script to include the documentation file in the produced archive at a clearly discoverable location (preferably at the archive root) so the exported package contains export/run instructions."
+          "description": "Create a repository-root README.md in English that documents DarkPattern Shield with sections: Overview; Features/Pages (Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting + Dashboard, Browser Extension Concept); Tech Stack; Prerequisites (Node.js, pnpm, dfx); Local Development (install dependencies, run frontend, deploy IC canisters); Authentication (Internet Identity high-level flow as implemented); Source Code Export (link to `frontend/SOURCE_CODE_EXPORT.md`, mention `frontend/scripts/export-source-code.sh` and `frontend/scripts/export-source-code.ps1`, and state that the export archive includes `README_EXPORT.md` copied from `frontend/SOURCE_CODE_EXPORT.md`). Ensure instructions do not claim any unimplemented features and match current export script behavior."
         }
       ]
     }
