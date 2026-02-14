@@ -1,0 +1,183 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-the-darkpattern-shield-homepage-with-a-clear-public-safety-oriented-explanation-of-modern-dark-patterns-e-g-1-trial-599-auto-renew-scams-seen-in-social-media-ads-and-include-three-prominent-cta-buttons-check-offer-risk-report-scam-and-know-your-risk",
+      "featureTitle": "Create the DarkPattern Shield homepage with a clear, public-safety-oriented explanation of modern dark patterns (e.g., “₹1 trial → ₹599 auto-renew” scams seen in social media ads), and include three prominent CTA buttons: “Check Offer Risk”, “Report Scam”, and “Know Your Risk”.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-a-consistent-modern-minimal-smart-city-cyber-safety-visual-theme-across-the-app-colors-typography-spacing-component-styling-that-looks-hackathon-ready-and-product-like-avoiding-a-blue-purple-dominant-palette",
+      "featureTitle": "Implement a consistent modern, minimal “smart city cyber safety” visual theme across the app (colors, typography, spacing, component styling) that looks hackathon-ready and product-like, avoiding a blue/purple-dominant palette.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-subscription-trap-detector-page-provide-a-single-text-input-where-users-can-paste-an-ad-link-or-offer-text-scan-the-input-using-basic-keyword-matching-e-g-trial-auto-renew-subscription-month-and-display-a-risk-level-low-medium-high-with-a-clear-warning-message-plus-a-short-educational-note-explaining-dark-patterns-in-simple-language",
+      "featureTitle": "Build the “Subscription Trap Detector” page: provide a single text input where users can paste an ad link or offer text; scan the input using basic keyword matching (e.g., trial, auto-renew, subscription, ₹, /month); and display a Risk Level (Low/Medium/High) with a clear warning message plus a short educational note explaining dark patterns in simple language.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/lib/riskDetector.ts",
+        "frontend/src/pages/SubscriptionTrapDetectorPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-personal-digital-risk-test-page-as-a-5-question-quiz-focused-on-subscription-cancellation-awareness-and-social-media-ad-behaviors-compute-a-digital-vulnerability-score-show-the-score-with-an-interpretable-label-and-present-exactly-3-personalized-safety-tips-derived-from-the-user-s-answers-score",
+      "featureTitle": "Build the “Personal Digital Risk Test” page as a 5-question quiz focused on subscription/cancellation awareness and social media ad behaviors; compute a “Digital Vulnerability Score”; show the score with an interpretable label; and present exactly 3 personalized safety tips derived from the user’s answers/score.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/lib/riskQuiz.ts",
+        "frontend/src/pages/PersonalDigitalRiskTestPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-scam-reporting-module-ui-a-simple-form-allowing-users-to-submit-scam-text-and-or-a-screenshot-description-text-only-choose-a-scam-category-subscription-trap-fake-discount-otp-scam-and-submit-the-report",
+      "featureTitle": "Implement the “Scam Reporting” module UI: a simple form allowing users to submit scam text and/or a screenshot description (text-only), choose a scam category (Subscription Trap, Fake Discount, OTP Scam), and submit the report.",
+      "files": [
+        "frontend/src/pages/ScamReportingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-small-reports-dashboard-view-can-be-embedded-in-the-scam-reporting-page-or-as-a-separate-page-that-displays-total-reports-and-the-most-common-scam-type-updating-after-new-submissions",
+      "featureTitle": "Create a small “Reports Dashboard” view (can be embedded in the Scam Reporting page or as a separate page) that displays total reports and the most common scam type, updating after new submissions.",
+      "files": [
+        "frontend/src/components/ReportsDashboard.tsx",
+        "frontend/src/pages/ScamReportingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-browser-extension-concept-page-with-a-visual-mockup-of-a-browser-warning-popup-implemented-in-ui-and-a-clear-explanation-of-how-an-extension-would-warn-users-before-payment-do-not-implement-any-real-extension-functionality",
+      "featureTitle": "Create the “Browser Extension Concept” page with a visual mockup of a browser warning popup (implemented in UI) and a clear explanation of how an extension would warn users before payment; do not implement any real extension functionality.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/pages/BrowserExtensionConceptPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-app-navigation-so-users-can-reach-home-subscription-trap-detector-personal-digital-risk-test-scam-reporting-with-dashboard-and-browser-extension-concept-ensure-ctas-on-the-homepage-route-correctly",
+      "featureTitle": "Add app navigation so users can reach: Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting (with dashboard), and Browser Extension Concept; ensure CTAs on the homepage route correctly.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/components/AppNav.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-generate-and-include-a-small-set-of-static-brand-illustration-assets-and-render-them-from-frontend-public-assets-generated-to-enhance-the-product-like-smart-city-cyber-safety-feel",
+      "featureTitle": "Generate and include a small set of static brand/illustration assets and render them from frontend/public/assets/generated to enhance the product-like “smart city cyber safety” feel.",
+      "files": [
+        "frontend/src/components/AppNav.tsx",
+        "frontend/src/components/Branding.tsx",
+        "frontend/src/pages/BrowserExtensionConceptPage.tsx",
+        "frontend/src/pages/HomePage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

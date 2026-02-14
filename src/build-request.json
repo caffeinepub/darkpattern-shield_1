@@ -1,0 +1,210 @@
+{
+  "kind": "build_request",
+  "title": "DarkPattern Shield: public safety awareness app for subscription fraud & social media manipulation",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create the DarkPattern Shield homepage with a clear, public-safety-oriented explanation of modern dark patterns (e.g., “₹1 trial → ₹599 auto-renew” scams seen in social media ads), and include three prominent CTA buttons: “Check Offer Risk”, “Report Scam”, and “Know Your Risk”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Build a clean, hackathon-ready public safety awareness web application called “DarkPattern Shield”… Homepage… Clear CTA buttons: “Check Offer Risk”, “Report Scam”, “Know Your Risk”."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Homepage loads as the default route and displays the product name “DarkPattern Shield”.",
+        "Homepage includes at least 2 real-life-style examples of hidden subscription/auto-renew patterns in plain English.",
+        "Homepage includes three clearly visible CTA buttons labeled exactly: “Check Offer Risk”, “Report Scam”, “Know Your Risk”.",
+        "Each CTA navigates to the corresponding page/section in the app."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement a consistent modern, minimal “smart city cyber safety” visual theme across the app (colors, typography, spacing, component styling) that looks hackathon-ready and product-like, avoiding a blue/purple-dominant palette.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Modern, minimal UI suitable for a smart city public safety platform.",
+          "The final output should look like a real smart-city cyber safety product, even though it is a prototype."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All pages share a consistent layout system (header/nav, content container, footer or equivalent).",
+        "Theme is applied consistently to buttons, form inputs, cards, alerts, and headings.",
+        "Primary palette is not predominantly blue/purple."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build the “Subscription Trap Detector” page: provide a single text input where users can paste an ad link or offer text; scan the input using basic keyword matching (e.g., trial, auto-renew, subscription, ₹, /month); and display a Risk Level (Low/Medium/High) with a clear warning message plus a short educational note explaining dark patterns in simple language.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Subscription Trap Detector… Input field where users paste an ad link or offer text. System scans for keywords like: trial, auto-renew, subscription, ₹/month. Displays a Risk Level (Low / Medium / High) with a clear warning message. Educational note explaining dark patterns in simple language."
+        ]
+      },
+      "acceptanceCriteria": [
+        "User can paste text or a URL into the detector input and submit/trigger analysis.",
+        "The UI displays one of: Low, Medium, High based on keyword matches (basic logic; no AI).",
+        "The UI includes a warning/explanation message that changes appropriately with the risk level.",
+        "An educational note defining dark patterns is always visible on the page in plain English."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Build the “Personal Digital Risk Test” page as a 5-question quiz focused on subscription/cancellation awareness and social media ad behaviors; compute a “Digital Vulnerability Score”; show the score with an interpretable label; and present exactly 3 personalized safety tips derived from the user’s answers/score.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Personal Digital Risk Test… Short quiz (5 questions)… Calculate and show a Digital Vulnerability Score. Provide 3 personalized safety tips."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Quiz contains exactly 5 questions covering: reading cancellation policies, clicking social media ads, checking auto-debits (can include 2 additional aligned questions).",
+        "After submission, the user sees a Digital Vulnerability Score and a short explanation of what it means.",
+        "Results include exactly 3 personalized safety tips that vary based on answers and/or score tier.",
+        "User can retake the quiz without refreshing the page."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement the “Scam Reporting” module UI: a simple form allowing users to submit scam text and/or a screenshot description (text-only), choose a scam category (Subscription Trap, Fake Discount, OTP Scam), and submit the report.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Scam Reporting Module… Simple form to upload scam text or screenshot description. Categorize scam types (Subscription Trap, Fake Discount, OTP Scam)."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Form includes fields for scam text (required) and screenshot description (optional), plus a required category selector with exactly the three specified categories.",
+        "On submit, the UI shows success/failure feedback.",
+        "After successful submit, the form resets or offers a clear “Submit another report” action."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Add backend support (single Motoko actor) to persist scam reports and compute summary stats, including: total number of reports and the most common scam type. Expose query/update methods needed by the frontend to submit reports and fetch dashboard stats.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Save reports in a database… Show a small dashboard with total reports and most common scam type."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Backend provides an update method to create a report with: text, optional screenshot description, category, and created timestamp (timestamp may be stored as an integer).",
+        "Backend stores reports across canister calls (stable storage as appropriate for the template).",
+        "Backend provides a query method returning total report count and the most common category (ties handled deterministically).",
+        "Frontend can successfully submit a report and subsequently see dashboard stats reflect the new report."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create a small “Reports Dashboard” view (can be embedded in the Scam Reporting page or as a separate page) that displays total reports and the most common scam type, updating after new submissions.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Show a small dashboard with total reports and most common scam type."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Dashboard shows total reports and most common scam type using data fetched from the backend.",
+        "Dashboard refreshes after a successful report submission (automatic or via a clear refresh action)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Create the “Browser Extension Concept” page with a visual mockup of a browser warning popup (implemented in UI) and a clear explanation of how an extension would warn users before payment; do not implement any real extension functionality.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Browser Extension Concept Page… Visual mockup of a browser warning popup… No real extension functionality required—demo concept only."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Page contains a visually distinct popup mock (e.g., card styled like a browser dialog) showing a warning title, risk indicator, and suggested action text.",
+        "Page includes a short explanation of the concept flow (e.g., detect risk signals, show warning before payment) in plain English.",
+        "No browser-extension APIs or actual extension packaging is included."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Add app navigation so users can reach: Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting (with dashboard), and Browser Extension Concept; ensure CTAs on the homepage route correctly.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Core Requirements: 1. Homepage… CTA buttons… 2… 3… 4… 5…"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A persistent navigation element (header/sidebar) links to all major pages.",
+        "Homepage CTA buttons navigate to the correct pages.",
+        "Routes render without blank screens or console errors."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Generate and include a small set of static brand/illustration assets and render them from frontend/public/assets/generated to enhance the product-like “smart city cyber safety” feel.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "The final output should look like a real smart-city cyber safety product, even though it is a prototype."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generated images are committed under frontend/public/assets/generated and referenced directly by the frontend (no backend image routing).",
+        "At least a logo and one background/illustration are visibly used in the UI."
+      ]
+    }
+  ],
+  "constraints": [
+    "Backend must be implemented in Motoko using a single-actor architecture (all logic in backend/main.mo).",
+    "Frontend must be implemented in React + TypeScript with Tailwind + shadcn-style composition; do not edit any files under frontend/src/components/ui or other immutable paths specified by the platform.",
+    "Use basic keyword logic for risk detection (no heavy AI/LLM integrations).",
+    "Use English for all user-facing text."
+  ],
+  "nonGoals": [
+    "Do not implement Python Flask, SQLite, HTML templates, or Bootstrap (not supported in this project environment).",
+    "Do not implement a real browser extension or any browser-extension APIs; concept/demo UI only.",
+    "Do not add third-party authentication providers; only Internet Identity is supported if authentication is later needed.",
+    "Do not add real-time features (WebSockets/chat/push notifications)."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Minimal shield logo mark with subtle circuit lines, monochrome (darkpattern-shield-logo.dim_512x512.png)",
+      "Futuristic smart-city skyline silhouette background, dark neutral palette (smart-city-background.dim_1920x1080.png)",
+      "Browser warning popup mock illustration on a neutral backdrop (extension-popup-mock.dim_1200x800.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-14T15:38:03.519Z",
+  "summary": "Most frontend pages, routing, navigation, keyword-based detector, 5-question quiz with retake, scam reporting UI with embedded dashboard, and generated asset usage appear implemented. Backend includes Motoko single-actor methods for submitting reports and fetching stats, but key backend requirements around report shape, stable persistence, and deterministic tie-handling are not fully evidenced. Some backend functionality and scam-type variants go beyond the requested scope/categories.",
+  "missing_requirements": [
+    {
+      "id": "REQ-6",
+      "requirement": "Backend must store scam reports across canister calls using stable storage as appropriate.",
+      "reason": "The backend uses an in-memory `reports` Map and `nextReportId` var with no `stable` variables or `preupgrade/postupgrade` logic shown, so persistence across upgrades/calls is not evidenced.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Backend update method to create a report must accept text, optional screenshot description, category, and created timestamp.",
+      "reason": "`submitReport` only accepts `(description : Text, scamType : ScamType)` and the `Report` type has only `description` (no separate optional screenshot description field) and uses `scamType` rather than the specified fixed categories. Frontend works around this by concatenating screenshot description into `description`, which does not meet the backend method shape requirement.",
+      "evidence": [
+        "backend/main.mo",
+        "frontend/src/pages/ScamReportingPage.tsx",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "requirement": "Backend query method returning total report count and the most common category with ties handled deterministically.",
+      "reason": "`calculateMostCommonScamType` only updates max when `count > currentMax.count`; ties are not resolved, and iteration order of `Map.entries()` is not evidenced as deterministic, so deterministic tie-handling is not shown.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Backend defines scam types unrelated to the required reporting categories (phishing, investmentFraud, romanceScam, identityTheft) and includes a free-form `#other` variant.",
+      "reason": "Requested categories were exactly: Subscription Trap, Fake Discount, OTP Scam. The added variants and custom compare logic exceed what was requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Backend method to fetch reports by user (`getReportsByUser`).",
+      "reason": "BuildRequest only required submitting reports and fetching summary stats (total + most common scam type). Per-user report listing was not requested.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    }
+  ],
+  "confidence": 0.76,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/AppLayout.tsx",
+    "frontend/src/components/AppNav.tsx",
+    "frontend/src/components/Branding.tsx",
+    "frontend/src/components/ReportsDashboard.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/lib/riskDetector.ts",
+    "frontend/src/lib/riskQuiz.ts",
+    "frontend/src/main.tsx",
+    "frontend/src/pages/BrowserExtensionConceptPage.tsx",
+    "frontend/src/pages/HomePage.tsx",
+    "frontend/src/pages/PersonalDigitalRiskTestPage.tsx",
+    "frontend/src/pages/ScamReportingPage.tsx",
+    "frontend/src/pages/SubscriptionTrapDetectorPage.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

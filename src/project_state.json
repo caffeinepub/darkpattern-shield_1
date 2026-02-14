@@ -1,0 +1,138 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Build “DarkPattern Shield”, a hackathon-ready smart-city styled public safety awareness web app focused on social media manipulation and subscription fraud, using HTML/CSS/Bootstrap + Flask + SQLite with simple keyword-based risk scanning.",
+  "architectural_notes": [
+    "Tech stack decision: Frontend uses HTML/CSS/Bootstrap with Flask-rendered templates.",
+    "Backend decision: Python Flask application providing routes for detector, quiz, reporting, and dashboard.",
+    "Database decision: SQLite used for prototype persistence of scam reports.",
+    "Logic constraint: Use basic keyword-based heuristics for risk scoring; avoid heavy AI/ML."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Minimal shield logo mark with subtle circuit lines, monochrome (darkpattern-shield-logo.dim_512x512.png)\n- Futuristic smart-city skyline silhouette background, dark neutral palette (smart-city-background.dim_1920x1080.png)\n- Browser warning popup mock illustration on a neutral backdrop (extension-popup-mock.dim_1200x800.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-the-darkpattern-shield-homepage-with-a-clear-public-safety-oriented-explanation-of-modern-dark-patterns-e-g-1-trial-599-auto-renew-scams-seen-in-social-media-ads-and-include-three-prominent-cta-buttons-check-offer-risk-report-scam-and-know-your-risk",
+      "title": "Create the DarkPattern Shield homepage with a clear, public-safety-oriented explanation of modern dark patterns (e.g., “₹1 trial → ₹599 auto-renew” scams seen in social media ads), and include three prominent CTA buttons: “Check Offer Risk”, “Report Scam”, and “Know Your Risk”.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-a-consistent-modern-minimal-smart-city-cyber-safety-visual-theme-across-the-app-colors-typography-spacing-component-styling-that-looks-hackathon-ready-and-product-like-avoiding-a-blue-purple-dominant-palette",
+      "title": "Implement a consistent modern, minimal “smart city cyber safety” visual theme across the app (colors, typography, spacing, component styling) that looks hackathon-ready and product-like, avoiding a blue/purple-dominant palette.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-subscription-trap-detector-page-provide-a-single-text-input-where-users-can-paste-an-ad-link-or-offer-text-scan-the-input-using-basic-keyword-matching-e-g-trial-auto-renew-subscription-month-and-display-a-risk-level-low-medium-high-with-a-clear-warning-message-plus-a-short-educational-note-explaining-dark-patterns-in-simple-language",
+      "title": "Build the “Subscription Trap Detector” page: provide a single text input where users can paste an ad link or offer text; scan the input using basic keyword matching (e.g., trial, auto-renew, subscription, ₹, /month); and display a Risk Level (Low/Medium/High) with a clear warning message plus a short educational note explaining dark patterns in simple language.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-personal-digital-risk-test-page-as-a-5-question-quiz-focused-on-subscription-cancellation-awareness-and-social-media-ad-behaviors-compute-a-digital-vulnerability-score-show-the-score-with-an-interpretable-label-and-present-exactly-3-personalized-safety-tips-derived-from-the-user-s-answers-score",
+      "title": "Build the “Personal Digital Risk Test” page as a 5-question quiz focused on subscription/cancellation awareness and social media ad behaviors; compute a “Digital Vulnerability Score”; show the score with an interpretable label; and present exactly 3 personalized safety tips derived from the user’s answers/score.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-scam-reporting-module-ui-a-simple-form-allowing-users-to-submit-scam-text-and-or-a-screenshot-description-text-only-choose-a-scam-category-subscription-trap-fake-discount-otp-scam-and-submit-the-report",
+      "title": "Implement the “Scam Reporting” module UI: a simple form allowing users to submit scam text and/or a screenshot description (text-only), choose a scam category (Subscription Trap, Fake Discount, OTP Scam), and submit the report.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-small-reports-dashboard-view-can-be-embedded-in-the-scam-reporting-page-or-as-a-separate-page-that-displays-total-reports-and-the-most-common-scam-type-updating-after-new-submissions",
+      "title": "Create a small “Reports Dashboard” view (can be embedded in the Scam Reporting page or as a separate page) that displays total reports and the most common scam type, updating after new submissions.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-browser-extension-concept-page-with-a-visual-mockup-of-a-browser-warning-popup-implemented-in-ui-and-a-clear-explanation-of-how-an-extension-would-warn-users-before-payment-do-not-implement-any-real-extension-functionality",
+      "title": "Create the “Browser Extension Concept” page with a visual mockup of a browser warning popup (implemented in UI) and a clear explanation of how an extension would warn users before payment; do not implement any real extension functionality.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-app-navigation-so-users-can-reach-home-subscription-trap-detector-personal-digital-risk-test-scam-reporting-with-dashboard-and-browser-extension-concept-ensure-ctas-on-the-homepage-route-correctly",
+      "title": "Add app navigation so users can reach: Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting (with dashboard), and Browser Extension Concept; ensure CTAs on the homepage route correctly.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-generate-and-include-a-small-set-of-static-brand-illustration-assets-and-render-them-from-frontend-public-assets-generated-to-enhance-the-product-like-smart-city-cyber-safety-feel",
+      "title": "Generate and include a small set of static brand/illustration assets and render them from frontend/public/assets/generated to enhance the product-like “smart city cyber safety” feel.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Create Homepage with problem explanation, real-life hidden subscription examples, and CTA buttons (Check Offer Risk / Report Scam / Know Your Risk) in modern minimal smart-city UI",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Implement Subscription Trap Detector: user input (ad link or offer text), keyword scan (trial/auto-renew/subscription/₹/month), show Risk Level (Low/Medium/High) with warning + educational note",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Implement Personal Digital Risk Test: 5-question quiz, compute Digital Vulnerability Score, show results with 3 personalized safety tips",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Implement Scam Reporting Module: form for scam text/screenshot description, categorize scam types (Subscription Trap/Fake Discount/OTP Scam), store in SQLite, dashboard with total reports + most common scam type",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Create Browser Extension Concept Page: visual mockup of browser warning popup and explanation (no real extension functionality)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Produce complete runnable prototype codebase: Flask backend, HTML templates with Bootstrap, SQLite integration, clean folder structure, dummy data where needed, deployment-ready",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Add backend support (single Motoko actor) to persist scam reports and compute summary stats, including: total number of reports and the most common scam type. Expose query/update methods needed by the frontend to submit reports and fetch dashboard stats.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "DarkPattern Shield",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

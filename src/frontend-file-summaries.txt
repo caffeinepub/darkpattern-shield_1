@@ -1,0 +1,17 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with all routes (home, detector, risk test, reporting, extension) wrapped in AppLayout.",
+  "frontend/src/components/AppLayout.tsx": "Shared layout wrapper providing consistent header navigation, main content area, and footer with Caffeine attribution across all pages.",
+  "frontend/src/components/AppNav.tsx": "Responsive navigation header with logo, desktop menu, and mobile sheet menu that highlights the active route.",
+  "frontend/src/components/Branding.tsx": "Reusable branding components (Logo, LogoWithWordmark) that render the generated DarkPattern Shield logo asset.",
+  "frontend/src/components/ReportsDashboard.tsx": "Dashboard component displaying total reports and most common scam type statistics fetched from the backend using React Query.",
+  "frontend/src/pages/HomePage.tsx": "Landing page with hero section, three CTA buttons, real-life dark pattern examples, and feature overview cards.",
+  "frontend/src/pages/SubscriptionTrapDetectorPage.tsx": "Interactive detector page with text input for analyzing offers, displaying risk levels (Low/Medium/High) with warnings and educational content.",
+  "frontend/src/pages/PersonalDigitalRiskTestPage.tsx": "Five-question quiz page that calculates a digital vulnerability score and provides exactly three personalized safety tips with retake functionality and Tailwind v3 compliant classes.",
+  "frontend/src/pages/ScamReportingPage.tsx": "Scam reporting form with category selection and embedded dashboard showing community statistics, with success feedback and form reset.",
+  "frontend/src/pages/BrowserExtensionConceptPage.tsx": "Concept demonstration page showing mockup images and explaining how a future browser extension would work with Tailwind v3 compliant classes (shrink-0).",
+  "frontend/src/lib/riskDetector.ts": "Pure TypeScript utility implementing keyword-based risk analysis logic for subscription trap detection with fixed string escaping to avoid parsing errors.",
+  "frontend/src/lib/riskQuiz.ts": "Quiz data model and scoring logic that calculates vulnerability scores and generates personalized safety tips based on user answers with fixed string escaping.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for backend integration (useGetStats, useSubmitReport) with proper type mapping and cache invalidation.",
+  "frontend/src/index.css": "Global styles with OKLCH color system using amber/graphite palette for smart city cyber safety theme in both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration with extended theme tokens, Inter font family, and custom design system matching the smart city aesthetic."
+}

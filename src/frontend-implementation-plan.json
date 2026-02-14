@@ -1,0 +1,257 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "DarkPattern Shield (Frontend-only) — Public safety awareness app",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create the homepage with public-safety explanation of dark patterns and three CTA buttons routing to key modules.",
+      "acceptanceCriteria": [
+        "Homepage loads as the default route and displays the product name “DarkPattern Shield”.",
+        "Homepage includes at least 2 real-life-style examples of hidden subscription/auto-renew patterns in plain English.",
+        "Homepage includes three clearly visible CTA buttons labeled exactly: “Check Offer Risk”, “Report Scam”, “Know Your Risk”.",
+        "Each CTA navigates to the corresponding page/section in the app."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "create",
+          "description": "Implement the DarkPattern Shield homepage content, including at least two real-life-style dark pattern examples and the three CTAs that navigate to the detector, reporting, and risk test routes. Use shadcn-ui components (e.g., Button, Card) for product-like composition; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app root with routing so the homepage is the default route and CTAs can navigate to the corresponding pages. Use build-template-react conventions for React + TypeScript routing setup; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Apply a consistent modern minimal “smart city cyber safety” theme across layout and UI components without a blue/purple-dominant palette.",
+      "acceptanceCriteria": [
+        "All pages share a consistent layout system (header/nav, content container, footer or equivalent).",
+        "Theme is applied consistently to buttons, form inputs, cards, alerts, and headings.",
+        "Primary palette is not predominantly blue/purple."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/AppLayout.tsx",
+          "operation": "create",
+          "description": "Create a shared layout wrapper providing consistent header/nav, main container spacing, and footer area. Compose layout using shadcn-ui building blocks (e.g., Card, Button) while keeping styling Tailwind-first; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Define global theme tokens and base styles (Tailwind + shadcn-style CSS variables) to achieve a dark-neutral/graphite foundation with safety accents (e.g., amber/green) and avoid a blue/purple-dominant palette. Ensure consistent typography/spacing defaults across pages."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Adjust Tailwind theme extensions (as needed) to support the chosen smart-city cyber safety palette and consistent component styling via existing CSS variables (no new global stylesheet paths)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap routed pages with the shared AppLayout so all views share consistent navigation and layout structure. Use shadcn-ui composition patterns for layout and navigation elements; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Build the Subscription Trap Detector page with keyword-based risk level classification, warning messaging, and an always-visible educational note.",
+      "acceptanceCriteria": [
+        "User can paste text or a URL into the detector input and submit/trigger analysis.",
+        "The UI displays one of: Low, Medium, High based on keyword matches (basic logic; no AI).",
+        "The UI includes a warning/explanation message that changes appropriately with the risk level.",
+        "An educational note defining dark patterns is always visible on the page in plain English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/SubscriptionTrapDetectorPage.tsx",
+          "operation": "create",
+          "description": "Implement a single input detector UI that runs basic keyword matching (trial/auto-renew/subscription/₹/month, etc.), computes Low/Medium/High, and renders a risk badge plus dynamic warning message. Keep an always-visible educational note defining dark patterns. Use shadcn-ui components (Input, Button, Alert/Badge/Card) for consistent styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/riskDetector.ts",
+          "operation": "create",
+          "description": "Add a small pure TypeScript utility to compute risk level and message from pasted text/URL using basic keyword logic (no AI/LLM)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Subscription Trap Detector route and ensure navigation can reach it (also used by the homepage “Check Offer Risk” CTA)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Build the Personal Digital Risk Test page with a 5-question quiz, vulnerability score + label, and exactly 3 personalized safety tips with retake support.",
+      "acceptanceCriteria": [
+        "Quiz contains exactly 5 questions covering: reading cancellation policies, clicking social media ads, checking auto-debits (can include 2 additional aligned questions).",
+        "After submission, the user sees a Digital Vulnerability Score and a short explanation of what it means.",
+        "Results include exactly 3 personalized safety tips that vary based on answers and/or score tier.",
+        "User can retake the quiz without refreshing the page."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/PersonalDigitalRiskTestPage.tsx",
+          "operation": "create",
+          "description": "Implement a 5-question quiz UI (radio/select style), compute a Digital Vulnerability Score, show an interpretable label (e.g., Low/Moderate/High vulnerability), and render exactly 3 personalized tips derived from answers/score tier. Include a retake action that resets local state without refresh. Use shadcn-ui form primitives (RadioGroup/Select, Button, Card, Alert) where available; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/lib/riskQuiz.ts",
+          "operation": "create",
+          "description": "Add quiz model + scoring/tips helper to keep logic deterministic and ensure exactly 3 tips are returned for each score tier/answer pattern."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Personal Digital Risk Test route and ensure navigation can reach it (also used by the homepage “Know Your Risk” CTA)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Implement the Scam Reporting UI form with required fields and submission feedback; reset form after success.",
+      "acceptanceCriteria": [
+        "Form includes fields for scam text (required) and screenshot description (optional), plus a required category selector with exactly the three specified categories.",
+        "On submit, the UI shows success/failure feedback.",
+        "After successful submit, the form resets or offers a clear “Submit another report” action."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ScamReportingPage.tsx",
+          "operation": "create",
+          "description": "Create the scam reporting page with a form: required scam text, optional screenshot description (text-only), and required category selector with exactly: Subscription Trap, Fake Discount, OTP Scam. On submit, show success/failure feedback and reset/offers “Submit another report”. Use shadcn-ui form components (Textarea/Input, Select, Button, Alert) for consistent UX; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/services/reporting.ts",
+          "operation": "create",
+          "description": "Add a frontend service that formats the report payload for the existing backend interface (e.g., merge scam text + screenshot description into a single description string, and map the three UI categories to a compatible backend ScamType such as `other(\"...\")`). Use core-infrastructure patterns for backend connectivity; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Create a Reports Dashboard view showing total reports and most common scam type, refreshing after report submission.",
+      "acceptanceCriteria": [
+        "Dashboard shows total reports and most common scam type using data fetched from the backend.",
+        "Dashboard refreshes after a successful report submission (automatic or via a clear refresh action)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/ReportsDashboard.tsx",
+          "operation": "create",
+          "description": "Implement a small dashboard component that fetches stats (total reports + most common scam type) and displays them in a compact card. Use React Query (already present) for fetching and refetching behavior and shadcn-ui Card/Badge for presentation; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/ScamReportingPage.tsx",
+          "operation": "modify",
+          "description": "Embed the Reports Dashboard in the reporting page and trigger a refresh after successful report submission (automatic refetch or a clear refresh control). Use shadcn-ui layout/card patterns for a cohesive module; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/services/backendClient.ts",
+          "operation": "create",
+          "description": "Add a minimal typed backend client wrapper used by reporting and dashboard to call available backend capabilities (submit report, fetch stats). Implement using core-infrastructure conventions for backend connection configuration; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Create the Browser Extension Concept page with a UI-only popup mock and plain-English concept explanation (no real extension functionality).",
+      "acceptanceCriteria": [
+        "Page contains a visually distinct popup mock (e.g., card styled like a browser dialog) showing a warning title, risk indicator, and suggested action text.",
+        "Page includes a short explanation of the concept flow (e.g., detect risk signals, show warning before payment) in plain English.",
+        "No browser-extension APIs or actual extension packaging is included."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/BrowserExtensionConceptPage.tsx",
+          "operation": "create",
+          "description": "Implement the concept page with a visually distinct popup mock (card/dialog style) showing a warning title, risk indicator, and recommended action text, plus a short plain-English flow explanation. Ensure it is strictly UI-only with no browser-extension APIs. Use shadcn-ui Card/Alert/Badge for the popup styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Register the Browser Extension Concept route and ensure navigation can reach it."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Add persistent navigation and routes for all major pages; ensure homepage CTAs route correctly.",
+      "acceptanceCriteria": [
+        "A persistent navigation element (header/sidebar) links to all major pages.",
+        "Homepage CTA buttons navigate to the correct pages.",
+        "Routes render without blank screens or console errors."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Define all required routes (Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting, Browser Extension Concept) and ensure the homepage is the default route. Wire CTAs and nav links to these routes."
+        },
+        {
+          "path": "frontend/src/components/AppNav.tsx",
+          "operation": "create",
+          "description": "Create a persistent navigation component with links to all major pages. Use shadcn-ui Button (and optional dropdown/sheet if available) for a modern hackathon-ready navigation; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Wire AppNav into the layout header so navigation is persistent across pages. Use shadcn-ui composition patterns; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Wire the three CTA buttons to navigate to their corresponding routes using the app router (labels must match exactly). Use shadcn-ui Button components for consistent styling; verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add and render static generated brand/illustration assets from frontend/public/assets/generated to enhance the smart city cyber safety feel.",
+      "acceptanceCriteria": [
+        "Generated images are committed under frontend/public/assets/generated and referenced directly by the frontend (no backend image routing).",
+        "At least a logo and one background/illustration are visibly used in the UI."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/darkpattern-shield-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the generated static asset: frontend/public/assets/generated/darkpattern-shield-logo.dim_512x512.png and ensure it is referenced directly by the frontend UI (no backend image routing)."
+        },
+        {
+          "path": "frontend/public/assets/generated/smart-city-background.dim_1920x1080.png",
+          "operation": "create",
+          "description": "Add the generated static asset: frontend/public/assets/generated/smart-city-background.dim_1920x1080.png and ensure it is referenced directly by the frontend UI (no backend image routing)."
+        },
+        {
+          "path": "frontend/public/assets/generated/extension-popup-mock.dim_1200x800.png",
+          "operation": "create",
+          "description": "Add the generated static asset: frontend/public/assets/generated/extension-popup-mock.dim_1200x800.png and ensure it is referenced directly by the frontend UI (no backend image routing)."
+        },
+        {
+          "path": "frontend/src/components/Branding.tsx",
+          "operation": "create",
+          "description": "Create small branding helpers (e.g., logo + wordmark component) that render the generated logo asset and can be reused in header/hero. Use shadcn-ui composition patterns where relevant; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/HomePage.tsx",
+          "operation": "modify",
+          "description": "Visibly incorporate the generated assets: use the logo in the hero/header area and apply the smart city background image in the homepage hero section styling (as a static referenced asset). Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/BrowserExtensionConceptPage.tsx",
+          "operation": "modify",
+          "description": "Visibly incorporate the generated extension mock image (frontend/public/assets/generated/extension-popup-mock.dim_1200x800.png) alongside the UI popup mock to strengthen the demo concept presentation. Verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AppNav.tsx",
+          "operation": "modify",
+          "description": "Include the generated logo in the persistent navigation header to reinforce brand identity. Verify the component's usage instructions before implementing."
+        }
+      ]
+    }
+  ]
+}
