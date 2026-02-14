@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 7,
+  "projectStateVersion": 11,
   "summary": "Build “DarkPattern Shield”, a hackathon-ready smart-city styled public safety awareness web app focused on social media manipulation and subscription fraud, using HTML/CSS/Bootstrap + Flask + SQLite with simple keyword-based risk scanning.",
   "architectural_notes": [
     "Tech stack decision: Frontend uses HTML/CSS/Bootstrap with Flask-rendered templates.",
@@ -98,6 +98,14 @@
         "REQ-12"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-create-a-top-level-repository-readme-md-that-provides-a-clear-local-development-run-guide-in-english-for-darkpattern-shield-including-prerequisites-how-to-start-the-local-internet-computer-network-deploy-canisters-and-run-the-react-frontend-locally-matching-the-repo-folder-structure-backend-frontend",
+      "title": "Create a top-level repository `README.md` that provides a clear local development run guide in English for DarkPattern Shield, including prerequisites, how to start the local Internet Computer network, deploy canisters, and run the React frontend locally, matching the repo folder structure (`backend/`, `frontend/`).",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -156,6 +164,28 @@
       "summary": "Create a top-level `README.md` at the repository root that documents the DarkPattern Shield project in English, including: project overview, key features/pages, tech stack, prerequisites, local development setup (frontend + IC canister), how authentication works (Internet Identity), and how to export/download the full source code using the existing export scripts and docs.",
       "reqIds": [
         "REQ-13"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Generate a clear step-by-step local development run guide (README-style) for the project: export source, install prerequisites, start local IC (`dfx start`), deploy canisters (`dfx deploy`), and run the frontend dev server (pnpm/Vite), matching the repo’s folder structure",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-17",
+      "summary": "Complete and correct `frontend/SOURCE_CODE_EXPORT.md` so it is a fully rendered Markdown guide (no truncated code fences) that documents exporting/downloading the source code and running the app locally, and ensure its instructions are consistent with the export scripts’ behavior of copying it into the archive as `README_EXPORT.md`.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-18",
+      "summary": "Create a top-level `README.md` at the repository root suitable for pushing to GitHub, documenting the DarkPattern Shield project in English. The README must include: (1) project overview, (2) key pages/routes and what they do (Home `/`, Subscription Trap Detector `/detector`, Personal Digital Risk Test `/risk-test`, Scam Reporting `/report`, Browser Extension Concept `/extension`), (3) prerequisites (Node, pnpm, DFX), (4) local development run steps for the Internet Computer canister (`dfx start`, `dfx deploy`) and for the React frontend dev server, (5) a brief note explaining authentication via Internet Identity (what the user experiences at a high level), and (6) how to export/download the full source code using the existing export scripts and the exported `README_EXPORT.md` behavior (copied from `frontend/SOURCE_CODE_EXPORT.md`).",
+      "reqIds": [
+        "REQ-16"
       ],
       "status": "pending"
     }

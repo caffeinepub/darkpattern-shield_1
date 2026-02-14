@@ -1,23 +1,24 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Add repository root README for DarkPattern Shield",
+  "title": "Add GitHub-ready root README.md for DarkPattern Shield",
   "requirements": [
     {
-      "id": "REQ-13",
-      "summary": "Add an English, end-user/developer-facing root README.md covering project overview, existing pages/features, tech stack, prerequisites, local dev (frontend + IC canister), Internet Identity auth, and source-code export instructions aligned with existing export docs/scripts.",
+      "id": "REQ-16",
+      "summary": "Create a repository-root README.md documenting the DarkPattern Shield project, routes, local development (DFX + frontend), Internet Identity auth experience, and source export workflow.",
       "acceptanceCriteria": [
-        "A `README.md` file exists at the repository root (same level as `backend/` and `frontend/`).",
-        "README content is entirely English and written as end-user/developer documentation (not internal notes).",
-        "README includes (at minimum) sections for: Overview, Features (with the existing pages: Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting + Dashboard, Browser Extension Concept), Tech Stack, Prerequisites (Node/pnpm/dfx), Local Development (install deps, run frontend, deploy canisters), Authentication (Internet Identity high-level flow), and Source Code Export (pointing to the existing `frontend/SOURCE_CODE_EXPORT.md` and mentioning the scripts in `frontend/scripts/`).",
-        "README does not introduce any new product features beyond what is already implemented.",
-        "README instructions align with the existing export behavior described by `frontend/SOURCE_CODE_EXPORT.md` and `frontend/scripts/export-source-code.sh` (including the `README_EXPORT.md` naming inside the export archive)."
+        "A new file `README.md` exists at the repository root (not under `frontend/`).",
+        "README.md is valid, fully-rendered Markdown (no broken/truncated code fences).",
+        "README.md includes a section listing the app’s main pages and their routes: `/`, `/detector`, `/risk-test`, `/report`, `/extension`.",
+        "README.md includes local run instructions that reference using DFX to start the local IC network and deploy canisters, and instructions to run the frontend dev server from the `frontend/` directory.",
+        "README.md includes a short, user-facing description of Internet Identity authentication (no third-party auth providers).",
+        "README.md includes an export section referencing `frontend/scripts/export-source-code.sh`, `frontend/scripts/export-source-code.ps1`, the `export/` output folder, and that `frontend/SOURCE_CODE_EXPORT.md` is copied into the archive root as `README_EXPORT.md`."
       ],
       "file_operations": [
         {
           "path": "README.md",
           "operation": "create",
-          "description": "Create a repository-root README.md in English that documents DarkPattern Shield with sections: Overview; Features/Pages (Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting + Dashboard, Browser Extension Concept); Tech Stack; Prerequisites (Node.js, pnpm, dfx); Local Development (install dependencies, run frontend, deploy IC canisters); Authentication (Internet Identity high-level flow as implemented); Source Code Export (link to `frontend/SOURCE_CODE_EXPORT.md`, mention `frontend/scripts/export-source-code.sh` and `frontend/scripts/export-source-code.ps1`, and state that the export archive includes `README_EXPORT.md` copied from `frontend/SOURCE_CODE_EXPORT.md`). Ensure instructions do not claim any unimplemented features and match current export script behavior."
+          "description": "Add a GitHub-ready, English README for DarkPattern Shield including: project overview; key routes/pages (`/`, `/detector`, `/risk-test`, `/report`, `/extension`) with brief descriptions; prerequisites (Node.js, pnpm, DFX); local development steps for the Internet Computer canister (`dfx start`, `dfx deploy`) and for running the React frontend dev server from `frontend/`; a brief, high-level user experience note on authentication via Internet Identity; and instructions to export/download the full source using `frontend/scripts/export-source-code.sh` and `frontend/scripts/export-source-code.ps1`, noting output to `export/` and that `frontend/SOURCE_CODE_EXPORT.md` is copied into the archive root as `README_EXPORT.md`."
         }
       ]
     }

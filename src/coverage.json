@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T17:31:04.327Z",
+  "generatedAt": "2026-02-14T17:52:30.962Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -11,8 +11,8 @@
     "implemented": 0,
     "items": [
       {
-        "id": "REQ-13",
-        "summary": "Create a top-level `README.md` at the repository root that documents the DarkPattern Shield project in English, including: project overview, key features/pages, tech stack, prerequisites, local development setup (frontend + IC canister), how authentication works (Internet Identity), and how to export/download the full source code using the existing export scripts and docs.",
+        "id": "REQ-16",
+        "summary": "Create a top-level `README.md` at the repository root suitable for pushing to GitHub, documenting the DarkPattern Shield project in English. The README must include: (1) project overview, (2) key pages/routes and what they do (Home `/`, Subscription Trap Detector `/detector`, Personal Digital Risk Test `/risk-test`, Scam Reporting `/report`, Browser Extension Concept `/extension`), (3) prerequisites (Node, pnpm, DFX), (4) local development run steps for the Internet Computer canister (`dfx start`, `dfx deploy`) and for the React frontend dev server, (5) a brief note explaining authentication via Internet Identity (what the user experiences at a high level), and (6) how to export/download the full source code using the existing export scripts and the exported `README_EXPORT.md` behavior (copied from `frontend/SOURCE_CODE_EXPORT.md`).",
         "status": "missing",
         "plannedFiles": [
           "README.md"
@@ -24,7 +24,6 @@
   "changedFiles": [
     "build-request.json",
     "feature_evidence.json",
-    "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
     "project_state.json",
     "scratch/component-selection.json",

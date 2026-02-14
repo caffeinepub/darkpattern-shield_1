@@ -1,37 +1,37 @@
 {
   "kind": "build_request",
-  "title": "Add top-level README.md for DarkPattern Shield project",
+  "title": "Add GitHub-ready root README.md for DarkPattern Shield",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-13",
-      "text": "Create a top-level `README.md` at the repository root that documents the DarkPattern Shield project in English, including: project overview, key features/pages, tech stack, prerequisites, local development setup (frontend + IC canister), how authentication works (Internet Identity), and how to export/download the full source code using the existing export scripts and docs.",
-      "target": "both",
+      "id": "REQ-16",
+      "text": "Create a top-level `README.md` at the repository root suitable for pushing to GitHub, documenting the DarkPattern Shield project in English. The README must include: (1) project overview, (2) key pages/routes and what they do (Home `/`, Subscription Trap Detector `/detector`, Personal Digital Risk Test `/risk-test`, Scam Reporting `/report`, Browser Extension Concept `/extension`), (3) prerequisites (Node, pnpm, DFX), (4) local development run steps for the Internet Computer canister (`dfx start`, `dfx deploy`) and for the React frontend dev server, (5) a brief note explaining authentication via Internet Identity (what the user experiences at a high level), and (6) how to export/download the full source code using the existing export scripts and the exported `README_EXPORT.md` behavior (copied from `frontend/SOURCE_CODE_EXPORT.md`).",
+      "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-1"
+          "msg-4"
         ],
         "quotes": [
-          "povide a readme file of this project"
+          "provide a readme file of this project to push in github"
         ]
       },
       "acceptanceCriteria": [
-        "A `README.md` file exists at the repository root (same level as `backend/` and `frontend/`).",
-        "README content is entirely English and written as end-user/developer documentation (not internal notes).",
-        "README includes (at minimum) sections for: Overview, Features (with the existing pages: Home, Subscription Trap Detector, Personal Digital Risk Test, Scam Reporting + Dashboard, Browser Extension Concept), Tech Stack, Prerequisites (Node/pnpm/dfx), Local Development (install deps, run frontend, deploy canisters), Authentication (Internet Identity high-level flow), and Source Code Export (pointing to the existing `frontend/SOURCE_CODE_EXPORT.md` and mentioning the scripts in `frontend/scripts/`).",
-        "README does not introduce any new product features beyond what is already implemented.",
-        "README instructions align with the existing export behavior described by `frontend/SOURCE_CODE_EXPORT.md` and `frontend/scripts/export-source-code.sh` (including the `README_EXPORT.md` naming inside the export archive)."
+        "A new file `README.md` exists at the repository root (not under `frontend/`).",
+        "README.md is valid, fully-rendered Markdown (no broken/truncated code fences).",
+        "README.md includes a section listing the app’s main pages and their routes: `/`, `/detector`, `/risk-test`, `/report`, `/extension`.",
+        "README.md includes local run instructions that reference using DFX to start the local IC network and deploy canisters, and instructions to run the frontend dev server from the `frontend/` directory.",
+        "README.md includes a short, user-facing description of Internet Identity authentication (no third-party auth providers).",
+        "README.md includes an export section referencing `frontend/scripts/export-source-code.sh`, `frontend/scripts/export-source-code.ps1`, the `export/` output folder, and that `frontend/SOURCE_CODE_EXPORT.md` is copied into the archive root as `README_EXPORT.md`."
       ]
     }
   ],
   "constraints": [
-    "Do not modify files under `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, or anything in `frontend/src/components/ui`.",
-    "Keep all backend logic in the existing single Motoko actor (no new backend services)."
+    "Do not modify files under `frontend/src/hooks/useInternetIdentity.ts`, `frontend/src/hooks/useInternetIdentity.tsx`, `frontend/src/hooks/useActor.ts`, `frontend/src/main.tsx`, or anything in `frontend/src/components/ui` (immutable paths).",
+    "Use English for all user-facing README text."
   ],
   "nonGoals": [
-    "Do not add a new in-app Tech Stack page unless explicitly requested.",
-    "Do not change authentication behavior or add new sign-up/login UI beyond what already exists.",
-    "Do not change the export scripts’ archive format/behavior beyond updating documentation references if needed."
+    "Implement any new app features beyond documentation.",
+    "Change backend canister logic or frontend routing/UI as part of this request."
   ],
   "imageRequirements": {
     "required": [],

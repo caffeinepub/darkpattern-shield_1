@@ -1,28 +1,29 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T17:31:04.325Z",
-  "summary": "REQ-13 appears to be implemented via repository-root README documentation, but the diff summary only explicitly shows modifications to metadata/summaries rather than an actual file add; there are also unrelated metadata/state updates not requested by the BuildRequest.",
-  "missing_requirements": [],
+  "generatedAt": "2026-02-14T17:52:30.960Z",
+  "summary": "The diff does not add the requested root-level README.md. Instead, it only modifies `project_state.json`, which is unrelated to the documentation-only BuildRequest.",
+  "missing_requirements": [
+    {
+      "id": "REQ-16",
+      "requirement": "Create a top-level `README.md` at the repository root suitable for GitHub, in English, including: project overview; main pages/routes (`/`, `/detector`, `/risk-test`, `/report`, `/extension`); prerequisites (Node, pnpm, DFX); local dev steps for IC canister (`dfx start`, `dfx deploy`) and React dev server from `frontend/`; brief Internet Identity auth note; and export/download instructions referencing `frontend/scripts/export-source-code.sh`, `frontend/scripts/export-source-code.ps1`, `export/` output folder, and `frontend/SOURCE_CODE_EXPORT.md` copied as `README_EXPORT.md`.",
+      "reason": "No new `README.md` file is added at the repository root in the diff (Added files: none). Therefore none of the required README content/acceptance criteria can be verified as implemented.",
+      "evidence": [
+        "<file-diff>: Added: 0, ADDED FILES: none"
+      ]
+    }
+  ],
   "hallucinated_features": [
     {
-      "description": "Updated/added metadata entry describing a comprehensive root README and many frontend files via `frontend-file-summaries.txt`, despite the BuildRequest only requesting creation of a top-level `README.md`.",
-      "reason": "The only requested change is to create/update the root README; updating a file-summary inventory is not mentioned as part of the request or constraints.",
-      "evidence": [
-        "frontend-file-summaries.txt"
-      ]
-    },
-    {
-      "description": "Modified `project_state.json` (including a summary referencing a different tech stack: HTML/CSS/Bootstrap + Flask + SQLite).",
-      "reason": "The BuildRequest is solely about adding/updating the root `README.md`; changing project state/summary (and to a seemingly unrelated stack) is not requested.",
+      "description": "Modified `project_state.json` project summary/features content unrelated to adding a GitHub-ready root `README.md`.",
+      "reason": "The BuildRequest is documentation-only and specifically requests creating a new root `README.md` without other project changes; modifying `project_state.json` is not requested.",
       "evidence": [
         "project_state.json"
       ]
     }
   ],
-  "confidence": 0.62,
+  "confidence": 0.92,
   "changed_files": [
-    "frontend-file-summaries.txt",
     "project_state.json"
   ]
 }
