@@ -13,5 +13,9 @@
   "frontend/src/lib/riskQuiz.ts": "Quiz data model and scoring logic that calculates vulnerability scores and generates personalized safety tips based on user answers with fixed string escaping.",
   "frontend/src/hooks/useQueries.ts": "React Query hooks for backend integration (useGetStats, useSubmitReport) with proper type mapping and cache invalidation.",
   "frontend/src/index.css": "Global styles with OKLCH color system using amber/graphite palette for smart city cyber safety theme in both light and dark modes.",
-  "frontend/tailwind.config.js": "Tailwind configuration with extended theme tokens, Inter font family, and custom design system matching the smart city aesthetic."
+  "frontend/tailwind.config.js": "Tailwind configuration with extended theme tokens, Inter font family, and custom design system matching the smart city aesthetic.",
+  "frontend/scripts/export-source-code.sh": "POSIX shell script that creates a timestamped tar.gz archive containing the complete repository (backend, frontend, assets, and config files) with export documentation included at the root.",
+  "frontend/scripts/export-source-code.ps1": "PowerShell script that creates a timestamped ZIP archive containing the complete repository (backend, frontend, assets, and config files) for Windows users.",
+  "frontend/scripts/EXPORT_ARTIFACT.md": "Documentation describing the export script output, archive contents, format, location, and verification steps for the generated source code package.",
+  "frontend/SOURCE_CODE_EXPORT.md": "Comprehensive English documentation covering prerequisites, export instructions, local setup steps, running the application, project structure, development workflow, and troubleshooting for the DarkPattern Shield application."
 }

@@ -1,77 +1,46 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-14T15:38:03.519Z",
-  "summary": "Most frontend pages, routing, navigation, keyword-based detector, 5-question quiz with retake, scam reporting UI with embedded dashboard, and generated asset usage appear implemented. Backend includes Motoko single-actor methods for submitting reports and fetching stats, but key backend requirements around report shape, stable persistence, and deterministic tie-handling are not fully evidenced. Some backend functionality and scam-type variants go beyond the requested scope/categories.",
+  "generatedAt": "2026-02-14T15:47:52.540Z",
+  "summary": "The diff adds export scripts (sh/ps1) that generate an archive containing backend/ and frontend/ plus a limited set of root files, and adds documentation files under frontend/. However, it does not clearly satisfy the requirement for a top-level export documentation file, and the export scripts may omit additional repository/config files beyond the hardcoded list.",
   "missing_requirements": [
     {
-      "id": "REQ-6",
-      "requirement": "Backend must store scam reports across canister calls using stable storage as appropriate.",
-      "reason": "The backend uses an in-memory `reports` Map and `nextReportId` var with no `stable` variables or `preupgrade/postupgrade` logic shown, so persistence across upgrades/calls is not evidenced.",
+      "id": "REQ-11",
+      "requirement": "Produce an exportable, complete copy of the full project source code (backend and frontend) as a single downloadable package, ensuring it includes all files needed to build and run the app locally (including configuration files already present in the project).",
+      "reason": "The export scripts only copy `backend/`, `frontend/`, and a small hardcoded list of root files (`dfx.json`, `.gitignore`, `README.md`, `LICENSE`). The requirement/AC calls for a complete repository export including all project config files that exist in the workspace, and the diff does not show inclusion of other possible root-level files/directories (e.g., package manager/workspace files, CI configs, etc.).",
       "evidence": [
-        "backend/main.mo"
+        "frontend/scripts/export-source-code.sh",
+        "frontend/scripts/export-source-code.ps1",
+        "frontend/scripts/EXPORT_ARTIFACT.md"
       ]
     },
     {
-      "id": "REQ-6",
-      "requirement": "Backend update method to create a report must accept text, optional screenshot description, category, and created timestamp.",
-      "reason": "`submitReport` only accepts `(description : Text, scamType : ScamType)` and the `Report` type has only `description` (no separate optional screenshot description field) and uses `scamType` rather than the specified fixed categories. Frontend works around this by concatenating screenshot description into `description`, which does not meet the backend method shape requirement.",
+      "id": "REQ-12",
+      "requirement": "Add a top-level documentation file that explains how to obtain/export the full source code from the app/project workspace and how to run it locally, using only English user-facing text.",
+      "reason": "The added documentation file is located at `frontend/SOURCE_CODE_EXPORT.md`, not at the repository top level as required by the AC (“top-level documentation file”, e.g., `EXPORT.md` or `SOURCE_CODE_EXPORT.md`). The scripts also copy that file into the archive as `README_EXPORT.md`, but that is inside the generated archive—not a committed top-level doc file in the repo.",
       "evidence": [
-        "backend/main.mo",
-        "frontend/src/pages/ScamReportingPage.tsx",
-        "frontend/src/hooks/useQueries.ts"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "requirement": "Backend query method returning total report count and the most common category with ties handled deterministically.",
-      "reason": "`calculateMostCommonScamType` only updates max when `count > currentMax.count`; ties are not resolved, and iteration order of `Map.entries()` is not evidenced as deterministic, so deterministic tie-handling is not shown.",
-      "evidence": [
-        "backend/main.mo"
+        "frontend/SOURCE_CODE_EXPORT.md",
+        "frontend/scripts/export-source-code.sh",
+        "frontend/scripts/export-source-code.ps1"
       ]
     }
   ],
   "hallucinated_features": [
     {
-      "description": "Backend defines scam types unrelated to the required reporting categories (phishing, investmentFraud, romanceScam, identityTheft) and includes a free-form `#other` variant.",
-      "reason": "Requested categories were exactly: Subscription Trap, Fake Discount, OTP Scam. The added variants and custom compare logic exceed what was requested.",
+      "description": "Added an additional documentation file describing the export artifact output (`frontend/scripts/EXPORT_ARTIFACT.md`) that is not explicitly requested (REQ-12 asks for a top-level export doc, not a scripts subfolder artifact doc).",
+      "reason": "BuildRequest only specifies adding a single top-level documentation file explaining export and local run instructions; it does not request a separate artifact documentation file under `frontend/scripts/`.",
       "evidence": [
-        "backend/main.mo"
-      ]
-    },
-    {
-      "description": "Backend method to fetch reports by user (`getReportsByUser`).",
-      "reason": "BuildRequest only required submitting reports and fetching summary stats (total + most common scam type). Per-user report listing was not requested.",
-      "evidence": [
-        "backend/main.mo"
+        "frontend/scripts/EXPORT_ARTIFACT.md"
       ]
     }
   ],
-  "confidence": 0.76,
+  "confidence": 0.72,
   "changed_files": [
-    "all_files_summary.json",
-    "backend/main.mo",
     "frontend-file-summaries.txt",
-    "frontend/index.css",
-    "frontend/index.html",
-    "frontend/src/App.tsx",
-    "frontend/src/components/AppLayout.tsx",
-    "frontend/src/components/AppNav.tsx",
-    "frontend/src/components/Branding.tsx",
-    "frontend/src/components/ReportsDashboard.tsx",
-    "frontend/src/hooks/useActor.ts",
-    "frontend/src/hooks/useInternetIdentity.ts",
-    "frontend/src/hooks/useQueries.ts",
-    "frontend/src/index.css",
-    "frontend/src/lib/riskDetector.ts",
-    "frontend/src/lib/riskQuiz.ts",
-    "frontend/src/main.tsx",
-    "frontend/src/pages/BrowserExtensionConceptPage.tsx",
-    "frontend/src/pages/HomePage.tsx",
-    "frontend/src/pages/PersonalDigitalRiskTestPage.tsx",
-    "frontend/src/pages/ScamReportingPage.tsx",
-    "frontend/src/pages/SubscriptionTrapDetectorPage.tsx",
-    "frontend/tailwind.config.js",
+    "frontend/SOURCE_CODE_EXPORT.md",
+    "frontend/scripts/EXPORT_ARTIFACT.md",
+    "frontend/scripts/export-source-code.ps1",
+    "frontend/scripts/export-source-code.sh",
     "project_state.json"
   ]
 }

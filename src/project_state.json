@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 5,
   "summary": "Build “DarkPattern Shield”, a hackathon-ready smart-city styled public safety awareness web app focused on social media manipulation and subscription fraud, using HTML/CSS/Bootstrap + Flask + SQLite with simple keyword-based risk scanning.",
   "architectural_notes": [
     "Tech stack decision: Frontend uses HTML/CSS/Bootstrap with Flask-rendered templates.",
@@ -10,7 +10,6 @@
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Minimal shield logo mark with subtle circuit lines, monochrome (darkpattern-shield-logo.dim_512x512.png)\n- Futuristic smart-city skyline silhouette background, dark neutral palette (smart-city-background.dim_1920x1080.png)\n- Browser warning popup mock illustration on a neutral backdrop (extension-popup-mock.dim_1200x800.png)",
   "existing_features": [
     {
       "id": "feature-create-the-darkpattern-shield-homepage-with-a-clear-public-safety-oriented-explanation-of-modern-dark-patterns-e-g-1-trial-599-auto-renew-scams-seen-in-social-media-ads-and-include-three-prominent-cta-buttons-check-offer-risk-report-scam-and-know-your-risk",
@@ -83,6 +82,22 @@
         "REQ-10"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-produce-an-exportable-complete-copy-of-the-full-project-source-code-backend-and-frontend-as-a-single-downloadable-package-ensuring-it-includes-all-files-needed-to-build-and-run-the-app-locally-including-configuration-files-already-present-in-the-project",
+      "title": "Produce an exportable, complete copy of the full project source code (backend and frontend) as a single downloadable package, ensuring it includes all files needed to build and run the app locally (including configuration files already present in the project).",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-top-level-documentation-file-that-explains-how-to-obtain-export-the-full-source-code-from-the-app-project-workspace-and-how-to-run-it-locally-using-only-english-user-facing-text",
+      "title": "Add a top-level documentation file that explains how to obtain/export the full source code from the app/project workspace and how to run it locally, using only English user-facing text.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -128,6 +143,12 @@
       "reqIds": [
         "REQ-6"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Provide an export/download of the full project source code (complete codebase package)",
+      "reqIds": [],
       "status": "pending"
     }
   ],
